@@ -1,21 +1,22 @@
 require 'spec_helper'
+require 'pry-debugger'
 
 describe "Puzzle Exercises" do
 
   describe "Puzzle #1" do
 
-    def get_wash_color(fruit)
-      fruit
+    def get_wash_color(fruithash)
+      fruithash['washington']
     end
 
     it "returns a color for 'washington'" do
       apples = { 'washington' => 'red' }
       # TODO: Uncomment and complete
-      # result = get_wash_color(???)???
+      result = get_wash_color(apples)
       expect(result).to eq 'red'
 
       apples = { 'washington' => 'not orange' }
-      result = get_washington_color(apples)
+      result = get_wash_color(apples)
       expect(result).to eq 'not orange'
     end
 
@@ -24,9 +25,9 @@ describe "Puzzle Exercises" do
   describe "Puzzle #2" do
 
     # TODO: Uncomment and complete this method
-    # def get_fruit_color(???)
-    #   ???
-    # end
+    def get_fruit_color(fruithash, type)
+      fruithash[type]
+    end
 
     it "returns the correct color for a specified fruit" do
       apples = {
@@ -41,7 +42,7 @@ describe "Puzzle Exercises" do
 
   end
 
-  describe "Puzzle #3", :pending => true do
+  describe "Puzzle #3" do
     class ArtMuseum
       def initialize
         @collection  = ['The Last Supper', 'Mona Lisa']
@@ -51,16 +52,16 @@ describe "Puzzle Exercises" do
       end
     end
 
-    @museum = ArtMuseum.new
+    museum = ArtMuseum.new
 
     it "counts correctly" do
       # TODO:
-      # result = @museum.???
+      result = museum.collection.count
       expect(result).to eq(2)
     end
   end
 
-  describe "Puzzle #4", :pending => true do
+  describe "Puzzle #4" do
     def greet(x)
       if x
         'Hello'
@@ -69,12 +70,12 @@ describe "Puzzle Exercises" do
 
     it "greets correctly" do
       # TODO: Uncomment and complete
-      # result = greet(???)
+      result = greet(true) + 'World'
       expect(result).to eq 'Hello there, World'
     end
   end
 
-  describe "Puzzle #5", :pending => true do
+  describe "Puzzle #5" do
     def collection
       array = ['cap', 'box']
       array.each do |item|
@@ -84,14 +85,14 @@ describe "Puzzle Exercises" do
 
     it "outputs 'sea otter'" do
       # TODO: Uncomment and complete
-      # result = collection.???
+      result = collection.last.split(', ').last
       expect(result).to eq 'sea otter'
     end
   end
 
-  describe "Puzzle #6", :pending => true do
+  describe "Puzzle #6" do
     def puzzle_5(x)
-      if x == true # TODO: Change this ONE LINE
+      if x # TODO: Change this ONE LINE
         "It's true!"
       end
     end
@@ -104,7 +105,7 @@ describe "Puzzle Exercises" do
     end
   end
 
-  describe "Puzzle #7", :pending => true do
+  describe "Puzzle #7" do
     def compare(x, y)
       x == y
     end
@@ -119,10 +120,10 @@ describe "Puzzle Exercises" do
 
     it "compares" do
       # TODO: Uncomment and complete
-      # message = ???
+      message = false
       expect( compare(2,3) ).to eq(message)
       # TODO: Uncomment and complete
-      # result = compare(???)
+      result = check(4,4)
       expect(result).to eq "Yep, these inputs evalute to true"
     end
   end
